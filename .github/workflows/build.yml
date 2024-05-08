@@ -8,7 +8,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Hello world action step
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: "Dockerfile"
+          tags: citest_build:latest
+          load: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          push: false
+
+      - name: Run docker to build
         uses: ./.github/actions/run-docker/
 
       - name: Upload Build Artifacts

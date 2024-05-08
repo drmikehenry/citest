@@ -3,4 +3,4 @@ description: Run docker
 
 runs:
   using: docker
-  image: ../../../Dockerfile
+  image: citest_build
