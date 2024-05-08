@@ -13,6 +13,8 @@ inputs:
 outputs:
   time:
     description: The time we greeted you
+  pwd:
+    description: PWD
 
 runs:
   using: docker
