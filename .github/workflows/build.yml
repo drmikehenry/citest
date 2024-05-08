@@ -17,3 +17,5 @@ jobs:
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Get the pwd
+        run: echo "pwd was ${{ steps.hello.outputs.pwd }}"
