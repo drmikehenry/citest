@@ -10,6 +10,8 @@ echo "::notice file=entrypoint.sh,line=7::$GREETING"
 echo "time=$GITHUB_OUTPUT" >>"$GITHUB_OUTPUT"
 echo "pwd=$(pwd)" >>"$GITHUB_OUTPUT"
 
+pwd >> output.txt
 printenv >> output.txt
+ls >> output.txt
 
 exit 0
