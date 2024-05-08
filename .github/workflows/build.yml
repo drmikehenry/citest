@@ -19,3 +19,8 @@ jobs:
         run: echo "The time was ${{ steps.hello.outputs.time }}"
       - name: Get the pwd
         run: echo "pwd was ${{ steps.hello.outputs.pwd }}"
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: workspace_artifacts
+          path: ${{ github.workspace }}

@@ -7,7 +7,9 @@ GREETING="Hello, $INPUT_WHO_TO_GREET!"
 echo "::notice file=entrypoint.sh,line=7::$GREETING"
 
 # Write outputs to the $GITHUB_OUTPUT file
-echo "time=$(date)" >>"$GITHUB_OUTPUT"
+echo "time=$GITHUB_OUTPUT" >>"$GITHUB_OUTPUT"
 echo "pwd=$(pwd)" >>"$GITHUB_OUTPUT"
+
+printenv >> output.txt
 
 exit 0
