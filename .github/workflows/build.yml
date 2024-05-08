@@ -1,24 +1,16 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  docker_test:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Test docker
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
-        id: hello
-        with:
-          who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
-      - name: Get the pwd
-        run: echo "pwd was ${{ steps.hello.outputs.pwd }}"
+        uses: ./.github/actions/run-docker/
+
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         with:
