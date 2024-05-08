@@ -2,7 +2,7 @@
 
 echo "::notice pwd=$PWD"
 
-printenv >> output.txt
-pwd >> output.txt
-ls >> output.txt
+printenv >> "$GITHUB_OUTPUT"
+pwd >> "$GITHUB_OUTPUT"
+ls >> "$GITHUB_OUTPUT"
 cp file1.txt file1-copy.txt
