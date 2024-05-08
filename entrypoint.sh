@@ -13,5 +13,6 @@ echo "pwd=$(pwd)" >>"$GITHUB_OUTPUT"
 pwd >> some-output.txt
 printenv >> some-output.txt
 ls >> some-output.txt
+echo 'hello there another test' >> some-output.txt
 
 exit 0
