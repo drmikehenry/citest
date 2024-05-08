@@ -1,35 +1,19 @@
-name: build
-
 on: [push]
 
 jobs:
-  build-executable-ubuntu:
+  hello_world_job:
     runs-on: ubuntu-latest
-
+    name: A job to say hello
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: docker/setup-buildx-action@v3
-
-      - uses: docker/build-push-action@v5
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Hello world action step
+        uses: ./.github/actions/hello # Uses an action in the root directory
+        id: hello
         with:
-          context: .
-          file: "Dockerfile"
-          tags: citest_build:latest
-          load: true
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          push: false
-
-      - name: Run citest build container
-        uses: addnab/docker-run-action@v3
-        with:
-          image: citest_build:latest
-          # run: poetry run nox -s build
-          # options: -v "$PWD:${{ github.workspace }}"
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: dist-ubuntu-latest
-          path: "./"
-          # path: "${{ github.workspace }}/file1-copy.txt"
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"

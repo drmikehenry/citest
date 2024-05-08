@@ -1,8 +1,5 @@
-#!/bin/bash
+#!/bin/sh -l
 
-echo "::notice pwd=$PWD"
-
-printenv >> "$GITHUB_OUTPUT"
-pwd >> "$GITHUB_OUTPUT"
-ls >> "$GITHUB_OUTPUT"
-cp file1.txt file1-copy.txt
+echo "Hello $1"
+time=$(date)
+echo "time=$time" >> $GITHUB_OUTPUT
