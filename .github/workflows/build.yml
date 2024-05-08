@@ -31,8 +31,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: dist-ubuntu-latest
-          path: |
-            "file1.txt"
-            "output.txt"
-            "file1-copy.txt"
+          path: "./"
           # path: "${{ github.workspace }}/file1-copy.txt"
