@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "::notice pwd=$PWD"
+
 printenv >> output.txt
 pwd >> output.txt
 ls >> output.txt
